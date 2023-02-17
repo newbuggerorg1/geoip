@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * 4"
   push:
     branches:
-      - master
+      - master2
     paths-ignore:
       - ".gitignore"
       - "config-example.json"
@@ -117,7 +117,9 @@ jobs:
           done
 
       - name: Remove some files to avoid publishing to GitHub release
-        run: rm -rf ./publish/*.{gz,zip} ./publish/text
+        run: |
+          rm -rf ./publish/*.{gz,zip}
+        #rm -rf ./publish/*.{gz,zip} ./publish/text
 
       - name: Upload files to GitHub release
         uses: svenstaro/upload-release-action@v2
