@@ -2,7 +2,7 @@ name: Build geoip files
 on:
   workflow_dispatch:
   schedule:
-    - cron: "00 05 * * 5"
+    - cron: "00 00 * * 5"
   push:
     branches:
       - master2
@@ -12,13 +12,17 @@ on:
       - "LICENSE"
       - "README.md"
       - ".github/dependabot.yml"
+  pull_request:
+    branches:
+      - master2
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.x.y
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v4
         with:
           go-version: 1.19
 
