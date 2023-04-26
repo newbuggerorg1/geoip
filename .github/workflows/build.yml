@@ -12,6 +12,10 @@ on:
       - "LICENSE"
       - "README.md"
       - ".github/dependabot.yml"
+  pull_request:
+    branches:
+      - master2
+
 jobs:
   build:
     name: Build
